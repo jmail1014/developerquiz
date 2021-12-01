@@ -1,0 +1,48 @@
+#high-score {
+  position: absolute;
+  top: 8px;
+  left: 16px;
+}
+
+#timer {
+  position: absolute;
+  top: 8px;
+  right: 16px;        
+}
+
+.center {
+  text-align: center;
+  padding: 150px;
+}
+
+button {
+    border-radius: 12px;
+    background-color: blueviolet;
+    color: white;
+}
+
+li {
+  list-style-type: none;
+}
+
+a {
+  color: blueviolet;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+a:hover {
+    color: cadetblue;
+    font-weight: bolder;
+    text-decoration: none;
+}
+
+#inputBtn, input[type="submit"] {
+    background: none;
+	color: inherit;
+	border: none;
+	padding: 0;
+	font: inherit;
+	cursor: pointer;
+	outline: inherit;
+}
