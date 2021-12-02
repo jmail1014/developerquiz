@@ -10,51 +10,50 @@
 
 var questionWrapper = document.getElementById("question-wrapper");
 var totalSeconds = 75;
-var question = ''
+var questionEL = document.getElementById("question-title-1");
+var answerList = document.querySelector(".questions")
+
 // array of questions and answers
 var questionsArr = [
     {
-        question: "question 1",
-        options: ["answer 1", "answer 2", "answer 3"],
-        answer: "answer 2"
+        question: "What does HTML stand for?",
+        options: ["Hyper Tag Markup Language", "Hyper Text Markup Language", "Hyperlinks Text Mark Language"],
+        answer: "Hyper Text Markup Language"
     },
     {
-        question: "question 2",
-        options: ["answer 1", "answer 2", "answer 3"],
-        answer: "answer 1"
+        question: "What symbol indicates a tag?",
+        options: ["Angle brackets", "Curved brackets", "Commas"],
+        answer: "Angle brackets"
     },
     {
-        question: "question 3",
-        options: ["answer 1", "answer 2", "answer 3"],
-        answer: "answer 1"
+        question: "Which of these is a genuine tag keyword?",
+        options: ["Header", "Bold", "Body"],
+        answer: "Header"
     },
     {
-        question: "question 4",
-        options: ["answer 1", "answer 2"],
-        answer: "answer 1"
+        question: "What is the correct tag for a line break?",
+        options: ["brk /", "line /", "br/"],
+        answer: "br/"
     },
     {
-        question: "question 5",
-        options: ["answer 1", "answer 2", "answer 3"],
-        answer: "answer 3"
+        question: "What does CSS stand for?",
+        options: ["Computing Style Sheet", "Creative Style System", "Cascading Style Sheet"],
+        answer: "Cascading Style Sheet"
     },
     {
-        question: "question 6",
-        options: ["answer 1", "answer 2", "answer 3"],
-        answer: "answer 3"
-    },
-    {
-        question: "question 7",
-        options: ["answer 1", "answer 2", "answer 3"],
-        answer: "answer 3"
+        question: "Where should a CSS file be referenced in a HTML file?",
+        options: ["Before any HTML code", "After all HTML code", "Inside the head section"],
+        answer: "Inside the head section"
     },
 ];
 console.log(questionsArr);
 
-// for loop 
-for (let i = 0; i < questionsArr.length; i++) {
-    question += questionsArr[i] + "question";
-  };
+// for loop to present question one at a time
+//for (let i = 0; i < questionsArr.length; i++) {
+ //   question += questionsArr[i] + "question";
+ // };
+
+var highScoresWrapper = document.getElementById("high-scores-wrapper");
 
 // store user initals and high score 
 localStorage.setItem('','');
@@ -69,13 +68,32 @@ var submitIntials = document.getElementById("all-done");
 var timerEl = document.getElementById("timer");
 // on startQuiz "button click" start timer & hide title, description and start button
 var startBtn = document.getElementById("startQuiz");
-  startBtn.addEventListener("click", function(){
+  
+startBtn.addEventListener("click", startQuiz);
+    
+function startQuiz() {
     console.log(startBtn);
     setInterval(function(){
         timerEl.innerHTML = "Timer: " + totalSeconds;
         totalSeconds --;
     }, 1000);
+
+    populateQuestions();
+
     questionWrapper.style.display = "block";
     startDiv.style.display = "none";
     submitIntials.style.display = "none";
-});
+};
+
+function populateQuestions() {
+    questionEL.innerHTML = questionsArr[0].question;
+
+    answerList.innerHTML=`
+    <li><button class = "answer">${questionsArr[0].options[0]}</button></li>
+    <br/>
+    <li><button class = "answer">${questionsArr[0].options[1]}</button></li>
+    <br/>
+    <li><button class = "answer">${questionsArr[0].options[2]}</button></li>
+    <br/>
+    `
+};
