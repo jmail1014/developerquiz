@@ -14,3 +14,5 @@
 - Client side storage
 
 ### Here is the link to the gitHub page: https://jmail1014.github.io/developerquiz/
+
+![developer-quiz-screenshot](https://user-images.githubusercontent.com/45181939/148306241-198f73ab-bdc4-4a6c-9288-7392acc7cd29.png)
