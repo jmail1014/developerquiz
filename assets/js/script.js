@@ -12,6 +12,7 @@ var questionWrapper = document.getElementById("question-wrapper");
 var totalSeconds = 75;
 var questionEL = document.getElementById("question-title-1");
 var answerList = document.querySelector(".questions")
+var questionCounter = 0;
 
 // array of questions and answers
 var questionsArr = [
@@ -96,4 +97,19 @@ function populateQuestions() {
     <li><button class = "answer">${questionsArr[0].options[2]}</button></li>
     <br/>
     `
+    document.querySelectorAll('.answer').forEach(el => el.addEventListener("click", checkAnswer));
 };
+
+function checkAnswer () {
+    var userAnswer = this.innerHTML;
+    var answer = questionsArr[questionCounter].answer;
+    console.log(userAnswer, answer);
+    if (userAnswer == answer) {
+        console.log('correct');
+    } else {
+        console.log('wrong');
+    };
+
+};
+
+
